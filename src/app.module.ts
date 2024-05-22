@@ -4,11 +4,13 @@ import { AppService } from './app.service';
 import { CatsController } from './cats/cats.controller';
 import { CatsService } from './cats/cats.service';
 import { CatsModule } from './cats/cats.module';
-import { APP_FILTER, APP_GUARD, MiddlewareBuilder } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR, MiddlewareBuilder } from '@nestjs/core';
 import { logger } from './common/middleware/logger.middleware';
 import { HttpExceptionFilter } from './common/exceptions/http.execption.filter';
 import { AllExceptionFilter } from './common/exceptions/all.exception.filter';
 import { RolesGuard } from './common/guards/roles.guard';
+import { LoggingInterceptor } from './common/interceptor/logging.interceptor';
+import { TransformInterceptor } from './common/interceptor/transform.interceptor';
 
 @Module({
   // import modules 
@@ -22,7 +24,8 @@ import { RolesGuard } from './common/guards/roles.guard';
     }, {
       provide: APP_GUARD,
       useClass: RolesGuard
-    }
+    },
+    
   ],
 })
 export class AppModule { // need to implement nestModule

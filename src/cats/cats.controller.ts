@@ -11,6 +11,7 @@ import { CatsService } from './cats.service';
 import { Cat } from './interfaces/cat.interface';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { Roles } from 'src/common/guards/roles.decorator';
+import { delay, timeout } from 'rxjs';
 
 @Controller('cats')
 // @UseFilters(new HttpExceptionFilter()) // controller level
@@ -38,7 +39,7 @@ export class CatsController {
 
   // exception filter 
   @Post()
-  @Roles(['admin'])
+  @Roles(['admin','user'])
   async create(@Body() catDto: CreateCatDto) {
     console.log('catDto: ', catDto);
     return this.catService.create(catDto);
