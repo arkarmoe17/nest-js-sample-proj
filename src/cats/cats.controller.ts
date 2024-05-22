@@ -1,6 +1,5 @@
 import {
-  BadRequestException, Body, Controller, Delete,
-  ForbiddenException,
+  Body, Controller, Delete,
   Get, Header, HttpCode, HttpException, HttpStatus, NotFoundException, Param,
   ParseIntPipe, ParseUUIDPipe, Post, Put, Query, Redirect, Res, UseFilters, UseGuards
 } from '@nestjs/common';

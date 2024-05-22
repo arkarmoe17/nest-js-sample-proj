@@ -1,4 +1,4 @@
-import { All, Get, MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import { Get, MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsController } from './cats/cats.controller';
